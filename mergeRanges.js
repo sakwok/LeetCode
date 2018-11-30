@@ -12,11 +12,12 @@ const mergeRanges = (meetings) => {
     let rightIndex = 0;
 
     while (sortedArr.length < left.length + right.length) {
-      if (leftIndex < left.length || (rightIndex === right.length || left[leftIndex].startTime <= right[rightIndex].startTime) {
+      if (leftIndex < left.length && (rightIndex === right.length || left[leftIndex].startTime <= right[rightIndex].startTime)) {
         sortedArr.push(left[leftIndex]);
         leftIndex += 1;
       } else {
         sortedArr.push(right[rightIndex]);
+        rightIndex +=1;
       }
     }
     return sortedArr;
@@ -41,3 +42,5 @@ const mergeRanges = (meetings) => {
   return mergedMeetings;
 
 };
+
+mergeRanges([{startTime:0, endTime: 1}, {startTime:2, endTime: 3}, {startTime:3, endTime: 4}, {startTime:5, endTime: 6}, {startTime: 7, endTime: 8}, {startTime: 6, endTime: 7}]);
