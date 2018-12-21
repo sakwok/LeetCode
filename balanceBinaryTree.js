@@ -34,10 +34,10 @@ var balanceBinaryTree = (tree) => {
       }
     } else {
       if (currTree.left) {
-        depths.push({ tree: currTree.left, depth: current.depth + 1 });
+        stack.push({ tree: currTree.left, depth: current.depth + 1 });
       }
       if (currTree.right) {
-        depths.push({ tree: currTree.right, depth: current.depth + 1 });
+        stack.push({ tree: currTree.right, depth: current.depth + 1 });
       }
     }
   }
