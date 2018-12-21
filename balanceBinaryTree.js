@@ -45,3 +45,20 @@ var balanceBinaryTree = (tree) => {
   return true;
 }
 
+const noChildren = new BinaryTreeNode(0);
+
+balanceBinaryTree(noChildren);
+
+const balanced = new BinaryTreeNode(2);
+
+balanced.insertLeft(new BinaryTreeNode(1));
+balanced.insertRight(new BinaryTreeNode(3));
+
+balanceBinaryTree(balanced);
+
+const unbalanced = new BinaryTreeNode(1);
+unbalanced.insertLeft(new BinaryTreeNode(0));
+unbalanced.insertRight(new BinaryTreeNode(3));
+unbalanced.right.insertLeft(new BinaryTreeNode(2));
+unbalanced.right.insertRight(new BinaryTreeNode(4));
+unbalanced.right.right.insertRight(new BinaryTreeNode(5));
