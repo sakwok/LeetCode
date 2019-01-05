@@ -1,0 +1,3 @@
+const longestCommonSubstring = (A, B) => {
+
+}
