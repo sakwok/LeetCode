@@ -12,9 +12,14 @@ function groupingDishes(dishes) {
   }
   let result = [];
 
-  for (key in ingredients) {
-    let start = [key];
-    result.push(start.concat(ingredients[key].sort()));
+  const sortedIngredients = Object.keys(ingredients).sort(alphSort);
+
+  for (let i = 0; i < sortedIngredients.length; i++) {
+    const key = sortedIngredients[i];
+    if (ingredients[key].length >= 2) {
+      let start = [key];
+      result.push(start.concat(ingredients[key].sort(alphSort)));
+    }
   }
 
   return result;
