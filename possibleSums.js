@@ -21,3 +21,4 @@ function possibleSums(coins, quantity) {
   return Object.keys(uniqueSums).length;
 
 }
+

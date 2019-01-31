@@ -19,18 +19,21 @@ const numInversions = (arr) => {
 
     let crossInversions = 0;
     while (i + j < totalLength) {
-      if (leftHalf.length === 1 && rightHalf.length === 1 && rightHalf[0] > leftHalf[0]) {
+      if (i === leftHalf.length - 1 && j === 0 && rightHalf[0] < leftHalf[0]) {
         local += 1;
         return 1;
       }
-      if (lefthalf[i] && leftHalf[i] < rightHalf[j]) {
-
-        crossInversions += leftHalf.length;
-        arr[i + j] = rightHalf[i];
-        j++
-      } else {
+      if (typeof leftHalf[i] === 'number' && leftHalf[i] < rightHalf[j]) {
         arr[i + j] = leftHalf[i];
         i++;
+      }
+      else if (typeof rightHalf[j] === 'number' && rightHalf[j] < leftHalf[i]) {
+        crossInversions += leftHalf.length;
+        arr[i + j] = rightHalf[j];
+        j++
+      } else {
+        arr[i + j] = rightHalf[j];
+        j++
       }
     }
 
